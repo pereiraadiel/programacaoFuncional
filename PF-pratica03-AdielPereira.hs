@@ -59,3 +59,64 @@ fibonacci x
   | x == 0 = 1
   | x == 1 = 1
   | otherwise = fibonacci (x-1) + fibonacci(x-2)
+
+-- EXERCICIO 6
+-- triangulares
+triangulares :: Int -> Int
+triangulares 1 = 0
+triangulares 2 = 1
+triangulares 3 = 3
+triangulares x = (triangulares (x-1)) + (x-1)
+
+-- EXERCICIO 7
+-- fibonacci com tupla?????
+
+passo (1,1) = (1,2)
+passo (x,y) = (y, x+y)
+
+n_par x = passo(x,x+1)
+
+fibo 1 = (1,1)
+
+-- EXERCICIO 8
+-- potencia2
+potencia2 :: Int -> Int
+potencia2 0 = 1
+potencia2 x = potencia2 (x-1) * 2
+
+-- EXERCICIO 9
+-- prodIntervalo
+-- prodIntervalo :: Int -> Int -> Int
+
+
+-- EXERCICIO 11
+-- restoDiv e divInteira
+restoDiv :: Int -> Int -> Int
+restoDiv x y = 
+  if(x == y) then 0
+  else if(x < y) then x
+  else restoDiv (x-y) y
+
+divInteira :: Int -> Int -> Int
+divInteira x y = 
+  if(x == y) then 1
+  else if (x < y) then 0
+  else 1 + divInteira (x-y) y
+
+-- EXERCICIO 12
+
+-- EXERCICIO 13
+-- binomial
+binomial :: (Int, Int) -> Int
+-- definicao de binomial recursiva:
+binomial (n,k) 
+  | k == 0 = 1
+  | n == k = 1
+  | otherwise = binomial (n-1,k) + binomial (n-1, k-1)
+
+-- definicao de binomial com casamento de padroes
+bnomial :: (Int, Int) -> Int
+bnomial (n, 0) = 1
+bnomial (n,k) = if(k==n) then 1
+  else bnomial(n-1,k) + bnomial(n-1,k-1)
+
