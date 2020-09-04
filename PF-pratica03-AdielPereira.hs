@@ -104,6 +104,15 @@ divInteira x y =
   else 1 + divInteira (x-y) y
 
 -- EXERCICIO 12
+-- mdc recursivo
+mdc :: Int -> Int -> Int
+mdc m n 
+  | n == 0 = m
+  | otherwise = mdc n (m `mod` n)
+
+-- mdc casamento de padroes
+mdc m 0 = m
+mdc m n = mdc n (m `mod` n)
 
 -- EXERCICIO 13
 -- binomial
@@ -120,3 +129,32 @@ bnomial (n, 0) = 1
 bnomial (n,k) = if(k==n) then 1
   else bnomial(n-1,k) + bnomial(n-1,k-1)
 
+-- EXERCICIO 14
+-- a)
+regressiva :: [Int]
+regressiva = [5, 5-1 .. 1]
+
+-- b)
+letras :: [Char]
+letras = ['a','c'..'e']
+
+-- c)
+progressao :: [Int]
+progressao = [1,4..16]
+
+-- d)
+-- zip [1,-2..(-11)] [1,5..17]
+
+-- EXERCICIO 15
+-- a)
+intervalo :: (Int, Int) -> [Int]
+intervalo (x,y)
+    |x==y = [x]
+    |otherwise = [x..y]
+
+-- b)
+intervalo_pares :: (Int, Int) -> [Int]
+intervalo_pares(x,y)
+    |x==y = []
+    |mod x 2 == 0 = [x,x+2..y]
+    |otherwise = [x+1,x+3..y]
